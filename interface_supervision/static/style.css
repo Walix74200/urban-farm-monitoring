@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 20px;
+}
+h1 {
+    color: #2c7a7b;
+}
+ul {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.stat-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .stat-card {
+    flex: 1 1 150px;
+    background-color: #edf2f7;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .temp-min { background-color: #c6f6d5; }     /* vert */
+  .temp-max { background-color: #fed7d7; }     /* rouge */
+  .temp-avg { background-color: #bee3f8; }     /* bleu */
+  .hum-min  { background-color: #c6f6d5; }
+  .hum-max  { background-color: #fed7d7; }
+  .hum-avg  { background-color: #bee3f8; }
+
+  .badge {
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
+  .badge.critique { background-color: #e53e3e; color: white; }
+  .badge.alerte   { background-color: #dd6b20; color: white; }
+  .badge.info     { background-color: #3182ce; color: white; }
+  
+  
+  

@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: interface-service
+spec:
+  selector:
+    app: interface
+  type: NodePort
+  ports:
+    - port: 8082
+      targetPort: 8082
+      nodePort: 30082
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: interface-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: interface
+  template:
+    metadata:
+      labels:
+        app: interface
+    spec:
+      containers:
+        - name: interface
+          image: lucas525/ferme-interface:latest
+          ports:
+            - containerPort: 8082
+          env:
+            - name: BACKEND_URL
+              value: "http://backend-service:8000/api/v1"
+            - name: ANOMALY_URL
+              value: "http://anomaly-service:8001/api/v1"

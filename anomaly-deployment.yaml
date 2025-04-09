@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: anomaly-service
+spec:
+  selector:
+    app: anomaly
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 8001
+      nodePort: 30081
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anomaly-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: anomaly
+  template:
+    metadata:
+      labels:
+        app: anomaly
+    spec:
+      containers:
+        - name: anomaly
+          image: lucas525/ferme-anomaly:latest  # 💡 Change ce nom si ton image Docker est différente
+          ports:
+            - containerPort: 8001
+          env:
+            - name: DB_NAME
+              value: "ferme"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "postgres"
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"

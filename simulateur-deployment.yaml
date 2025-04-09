@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulateur-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simulateur
+  template:
+    metadata:
+      labels:
+        app: simulateur
+    spec:
+      containers:
+        - name: simulateur
+          image: lucas525/ferme-simulateur:latest
+          env:
+            - name: DB_NAME
+              value: "ferme"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "postgres"
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"
