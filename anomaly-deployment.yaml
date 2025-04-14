@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: anomaly
-          image: lucas525/ferme-anomaly:latest  # 💡 Change ce nom si ton image Docker est différente
+          image: lucas525/ferme-anomaly:latest  
           ports:
             - containerPort: 8001
           env:
