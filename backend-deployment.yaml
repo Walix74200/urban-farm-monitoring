@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: lucas525/ferme-backend:latest  # 🔁 Remplace par le nom réel de ton image
+          image: lucas525/ferme-backend:latest  
           ports:
             - containerPort: 8000
           env:
